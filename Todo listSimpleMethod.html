@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container01 {
+        text-align: center;
+    }
+
+    .container {
+        width: 250px;
+        display: inline-block;
+        height: 140px;
+        overflow: scroll;
+        background-color: #eee;
+        border-radius: 9px;
+        margin-top: 9px;
+        border: 2px solid black;
+    }
+</style>
+
+<body>
+    <div class="container01">
+        Add Text here <br>
+        <input type="text" id="check">
+        <div class="innerContainer01"><button id="addBtn">ADD LIST</button></div>
+    </div>
+    <div class="mainContainer"><a id="list"></a></div>
+    <script>
+        const list = document.querySelector("#list")
+        let count = 1;
+        addBtn.addEventListener('click', function () {
+            let check = document.getElementById("check").value;
+            let content = check;
+            const div = document.createElement("div")
+            div.classList.add("container")
+            div.setAttribute("id", "containerr")
+            div.innerHTML = `
+                ${content};
+                <div class="innerContainer">
+                    ${count}
+                    <button onclick="deleteList(this)">Delete LIST</button>
+                </div>
+            `;
+            count += 1;
+            list.appendChild(div);
+        })
+        function deleteList(e) {
+            e.parentNode.parentNode.remove()
+        }
+    </script>
+</body>
+
+</html>
